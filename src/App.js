@@ -597,46 +597,112 @@
 //   }
 // }
 
-import React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Nav from "./components/Nav";
-import About from "./components/about";
-import Contacts from "./components/Contacts";
-import ForParams from "./components/Forparams";
-import Filter from "./components/Filter";
-import NestedRoute from "./components/NestedRoute";
-import Homepage from "./components/Homepage";
-import "./App.css";
-import Protected from "./components/Protected";
-import Login from "./components/Login";
-import Dynamic from "./components/Dynamic";
-import User from "./components/User";
-import { Aray } from "./components/data";
-import Statewithobj from "./components/Statewithobj";
+// import React from "react";
+// import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+// import Nav from "./components/Nav";
+// import About from "./components/about";
+// import Contacts from "./components/Contacts";
+// import ForParams from "./components/Forparams";
+// import Filter from "./components/Filter";
+// import NestedRoute from "./components/NestedRoute";
+// import Homepage from "./components/Homepage";
+// import "./App.css";
+// import Protected from "./components/Protected";
+// import Login from "./components/Login";
+// import Dynamic from "./components/Dynamic";
+// import User from "./components/User";
+// import { Aray } from "./components/data";
+// import Statewithobj from "./components/Statewithobj";
+// function App() {
+//   return (
+//     <div className="App">
+//       <BrowserRouter>
+//         <Nav />
+//         <Routes>
+//           {/* <Route path='/' element={<Homepage/>} /> */}
+//           <Route path="/" exact element={<Protected Component={Homepage} />} />
+//           <Route path="/about/" element={<Protected Component={About} />} />
+//           <Route path="/login" element={<Login />} />
+//           <Route path="/contacts" element={<Contacts />} />
+//           <Route path="/Forparams/:name" element={<ForParams />} />
+//           <Route path="/filter" element={<Filter />} />
+//           <Route path="/dynamic" element={<Dynamic />} />
+//           <Route path="/statewithobj" element={<Statewithobj />} />
+//           <Route path="/user/:id/:name" element={<User />} />
+//           <Route path="/*" element={<h1>Not Found</h1>} />
+//           <Route path="/NestedR" element={<NestedRoute />}>
+//             {/* <Route path='/about' element={<About/>} /> */}
+//             <Route path="contacts" element={<Contacts />} />
+//             {/* <Route path='/params/:name' element={ <ForParams/> } /> */}
+//           </Route>
+//         </Routes>
+//       </BrowserRouter>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// import React, { createContext, useState } from 'react'
+// import Statewithobj from './components/Statewithobj'
+// import User from './components/User'
+// export const Global=createContext()
+// function App() {
+//   const [color,setcolor] = useState('red')
+//   const getDays=(item)=>{
+//     console.log(item)
+//   }
+//   return (
+//     <Global.Provider value={{colors:color , getDay:getDays}}>
+//     <div>App
+//       <User />
+//       <Statewithobj/>
+//     </div>
+//     </Global.Provider>
+//   )
+// }
+
+// export default App
+
+// import React, {useReducer} from 'react'
+// const intialState=0
+// const reducer=(state,action)=>{
+//  switch(action){
+//    case "add":
+//      return state + 1;
+//    case 'subtract':
+//      return state -1 ;
+//    default:
+//     throw new Error('Unexpected action');
+//  }
+
+// function App() {
+//   const [count,dispatch] = useReducer(reducer,intialState)
+//   return (
+//     <div>
+//     <h1>{count}</h1>
+//     <button  onClick={()=>dispatch("add")} >click here</button >
+//     <button onClick={()=>dispatch("subtract")} >click here</button>
+//   </div>
+//   )
+// }
+
+// export default App
+
+import React, { useState } from "react";
+
 function App() {
+  const [count, setCount] = useState(34);
+  const [bool, setBool] = useState(false);
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Nav />
-        <Routes>
-          {/* <Route path='/' element={<Homepage/>} /> */}
-          <Route path="/" exact element={<Protected Component={Homepage} />} />
-          <Route path="/about/" element={<Protected Component={About} />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/contacts" element={<Contacts />} />
-          <Route path="/Forparams/:name" element={<ForParams />} />
-          <Route path="/filter" element={<Filter />} />
-          <Route path="/dynamic" element={<Dynamic />} />
-          <Route path="/statewithobj" element={<Statewithobj />} />
-          <Route path="/user/:id/:name" element={<User />} />
-          <Route path="/*" element={<h1>Not Found</h1>} />
-          <Route path="/NestedR" element={<NestedRoute />}>
-            {/* <Route path='/about' element={<About/>} /> */}
-            <Route path="contacts" element={<Contacts />} />
-            {/* <Route path='/params/:name' element={ <ForParams/> } /> */}
-          </Route>
-        </Routes>
-      </BrowserRouter>
+    <div>
+      
+      <input
+        type="text"
+        value={count}
+        onChange={(e) => setCount(e.target.value)}
+      />
+      {bool ? <button onClick={() => setBool(false)}>Cliked</button> : <button onClick={() => setBool(true)}>click</button> }
     </div>
   );
 }
